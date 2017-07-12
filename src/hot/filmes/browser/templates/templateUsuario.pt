@@ -88,7 +88,7 @@
             </table>
         </div>
         <!-- Todos endereços -->
-        <div tal:condition="python: len(enderecos) < 1">
+        <div tal:condition="python: len(enderecos) > 1">
             <p>Endereço:</p>
             <table class="tabelaFilmes">
                 <tr>

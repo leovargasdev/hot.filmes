@@ -6,19 +6,16 @@
 hot.filmes
 ==============================================================================
 
-Tell me what your product does
+Esse repositorio se encontra um projeto desenvolvido em cima do framework Plone
 
-Features
+Implementações do Projeto
 --------
 
-- Can be bullet points
+- Criação de interfaces
 
+- Criação de viewslets
 
-Examples
---------
-
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
+- Criação de templates
 
 
 Documentation
@@ -35,10 +32,10 @@ This product has been translated into
 - Klingon (thanks, K'Plai)
 
 
-Installation
+Instalação
 ------------
 
-Install hot.filmes by adding it to your buildout::
+Instale o hot.filmes adicionando-o buildout::
 
     [buildout]
 
@@ -47,8 +44,20 @@ Install hot.filmes by adding it to your buildout::
     eggs =
         hot.filmes
 
+    develop =
+	src/hot.filmes
 
-and then running ``bin/buildout``
+Neste projeto também foi utilizado o framework bootstrap, então no buildout adicione::
+
+    [versions]
+	
+	...
+
+	Plone.app.jquery = 1.11.2
+	Plone.app.jquerytools = 1.7.0
+	Collective.js.bootstrap = 3.3.5	
+	
+e agora excute o arquivo ``bin/buildout``
 
 
 Contribute
@@ -57,14 +66,6 @@ Contribute
 - Issue Tracker: https://github.com/collective/hot.filmes/issues
 - Source Code: https://github.com/collective/hot.filmes
 - Documentation: https://docs.plone.org/foo/bar
-
-
-Support
--------
-
-If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
-
 
 License
 -------

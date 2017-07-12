@@ -39,8 +39,8 @@
         template="templates/logo.pt"
         class=".viewlets.logoViewlet.logoViewlet"
         permission="zope.Public"
-        />
-    <browser:viewlet
+        /> -->
+    <!--<browser:viewlet
         name="HotFilme.footer"
         manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
         template="templates/footer.pt"

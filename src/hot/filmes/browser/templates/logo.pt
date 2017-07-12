@@ -8,9 +8,9 @@
 		   tal:attributes="href 	portal/absolute_url;
 		                   title 	portal/title;">
 
-		    <img tal:attributes="alt 	string:${context/portal_url}/++resource++hot.filmes/;
+		    <img tal:attributes="alt 	view/logo_alt;
 		                         title 	view/logo_title;
-		                         src 	string:${context/portal_url}/++resource++hot.filmes/check-icon.png;"/>
+		                       	 src	"/>
 		</a>
 	</tal:imagotipo>
 </metal:logo>

@@ -1,3 +1,4 @@
+# import Image
 from plone import api
 from plone.app.layout.viewlets import ViewletBase
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -14,3 +15,6 @@ class logoViewlet(ViewletBase):
 
 	def logo_alt(self):
 		return "Imagem logotipo do hot filmes"
+
+	# def logo_img(self):
+	# 	return Image.open(icon.png)

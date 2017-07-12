@@ -32,6 +32,7 @@ src/hot/filmes/browser/templates/templateLocalizacao.pt
 src/hot/filmes/browser/templates/templateUsuario.pt
 src/hot/filmes/browser/viewlets/__init__.py
 src/hot/filmes/browser/viewlets/footerViewlet.py
+src/hot/filmes/browser/viewlets/icon.png
 src/hot/filmes/browser/viewlets/logoViewlet.py
 src/hot/filmes/browser/views/__init__.py
 src/hot/filmes/browser/views/viewFilme.py
@@ -53,6 +54,7 @@ src/hot/filmes/profiles/default/types/localizacao.xml
 src/hot/filmes/profiles/default/types/teste.xml
 src/hot/filmes/profiles/default/types/usuario.xml
 src/hot/filmes/profiles/uninstall/browserlayer.xml
+src/hot/filmes/resources/icon.png
 src/hot/filmes/tests/__init__.py
 src/hot/filmes/tests/test_bla.py
 src/hot/filmes/tests/test_robot.py
