@@ -1,0 +1,61 @@
+<metal:page define-macro="master">
+<tal:doctype tal:replace="structure string:&lt;!DOCTYPE html&gt;" />
+
+<html   xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br"
+        xmlns:metal="http://xml.zope.org/namespaces/metal"
+        xmlns:tal="http://xml.zope.org/namespaces/tal"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        metal:use-macro="context/main_template/macros/master"
+        i18n:domain="hot.filmes">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<metal:content-title fill-slot="content-title">
+</metal:content-title>
+
+<metal:content-description fill-slot="content-description">
+</metal:content-description>
+
+<metal:content-core fill-slot="content-core">
+    <div tal:define="
+                     titulo     context/title;
+                     sinopse    python: view.getSinopse();
+                     dataL      python: view.getData();
+                     horarioL   python: view.getHorario();">
+        <!-- Campo Titulo -->
+        <div tal:condition="python: titulo is not None">
+            <b><span class="">Titulo:<span></b>
+            <span tal:content="titulo"> titulo </span>
+        </div>
+        <br>
+        <!-- Campo Sinopse -->
+        <div>
+            <b><span class="">Sinopse:<span></b>
+            <span tal:content="string:${sinopse}"> sinopse </span>
+        </div>
+        <br>
+
+<!-- choice -->
+        <!-- <tal:paissesX condition="context/pais" define="pais context/pais/getObject">
+            <span tal:content="pais/title"/>
+        </tal:paissesX> -->
+<!-- lista -->
+        <!-- <tal:paissesL repeat="pais context/pais">
+            <span tal:content="pais/getObject/title"/>
+        </tal:paissesL> -->
+
+        <!-- Campo Data Lançamento -->
+        <div>
+            <b><span>Data:</span></b>
+            <span tal:content="string:${dataL}"> Data Lancamento </span>
+
+            <b><span>Horario:</span></b>
+            <span tal:content="string:${horarioL}"> Horario Lancamento </span>
+        </div>
+    </div>
+</metal:content-core>
+</body>
+</html>
+</metal:page>

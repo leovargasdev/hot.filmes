@@ -1,0 +1,81 @@
+<metal:page define-macro="master">
+<tal:doctype tal:replace="structure string:&lt;!DOCTYPE html&gt;" />
+
+<html   xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br"
+        xmlns:metal="http://xml.zope.org/namespaces/metal"
+        xmlns:tal="http://xml.zope.org/namespaces/tal"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        metal:use-macro="context/main_template/macros/master"
+        i18n:domain="hot.filmes">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<metal:content-title fill-slot="content-title">
+</metal:content-title>
+
+<metal:content-description fill-slot="content-description">
+</metal:content-description>
+
+<metal:content-core fill-slot="content-core">
+    <style type="text/css">
+        pre, h1{
+            text-align: center;
+        }
+        pre{
+            font-size: 14px;
+        }
+        .linha{
+            height: 2px;
+            background-color: silver;
+        }
+    </style>
+    <div tal:define="
+                     pais       context/title;
+                     cidade     context/cidade;
+                     sigla      python:view.getSigla()">
+        <!-- Campo Pais -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Informações <span tal:content="pais"></span></h1>
+                </div>
+            </div>
+            <div class="row"><div class="col-md-8 col-md-offset-2 linha"></div></div>
+            <br />
+            <br />
+            <div class="row">
+                <div class="col-md-1 col-md-offset-3">
+                    <strong><span class="">Pais:<span></strong>
+                </div>
+                <div class="col-md-4">
+                    <pre tal:content="pais"> pais </pre>
+                </div>
+            </div>
+            <br />
+            <!-- Campo Estado -->
+            <div class="row">
+                <div class="col-md-1 col-md-offset-3">
+                    <strong><span class="">Cidade:<span></strong>
+                </div>
+                <div class="col-md-4">
+                    <pre tal:content="cidade"></pre>
+                </div>
+            </div>
+            <br />
+            <!-- Campo Sigla -->
+            <div class="row">
+                <div class="col-md-2 col-md-offset-3">
+                    <strong><span class="">Sigla(estado/pais):<span></strong>
+                </div>
+                <div class="col-md-3">
+                    <pre tal:content="string:${sigla}"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</metal:content-core>
+</body>
+</html>
+</metal:page>

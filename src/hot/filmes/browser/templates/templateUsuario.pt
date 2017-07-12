@@ -1,0 +1,128 @@
+<metal:page define-macro="master">
+<tal:doctype tal:replace="structure string:&lt;!DOCTYPE html&gt;" />
+
+<html   xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br"
+        xmlns:metal="http://xml.zope.org/namespaces/metal"
+        xmlns:tal="http://xml.zope.org/namespaces/tal"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        metal:use-macro="context/main_template/macros/master"
+        i18n:domain="hot.filmes">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<metal:content-title fill-slot="content-title">
+</metal:content-title>
+
+<metal:content-description fill-slot="content-description">
+</metal:content-description>
+
+<metal:content-core fill-slot="content-core">
+    <style type="text/css">
+        .tabelaFilmes{
+            width: 50%;
+            margin-left: 15%;
+        }
+        .tabelaLinha{
+            text-align: center;
+        }
+    </style>
+
+    <div tal:define="
+                     nome       context/title;
+                     sobrenome  context/sobrenome;
+                     cpf        python: view.getCPF();
+                     sexo       python: view.getSexo();
+                     filmes     python: view.getFilmesFavoritos();
+                     endereco   python: view.getEndereco();
+                     enderecos  python: view.getEnderecoALL();
+                     aniver     context/aniversario">
+        <!-- Campo Nome/sobrenome -->
+        <div tal:condition="python: nome is not None">
+            <b><span >Nome:<span></b>
+            <span tal:content="nome"> nome </span>
+            <span tal:content="sobrenome"> sobrenome </span>
+        </div>
+        <br>
+        <!-- Campo cpf -->
+        <div>
+            <b><span class="">CPF:<span></b>
+            <span tal:content="string:${cpf}"> cpf </span>
+        </div>
+        <br>
+        <!-- Campo Aniversario -->
+        <div>
+            <b><span>Data de nascimento:</span></b>
+            <span tal:content="aniver"> aniversario </span>
+        </div>
+        <br>
+        <!-- Campo Sexo -->
+        <div>
+            <b><span>Sexo:</span></b>
+            <span tal:content="string:${sexo}"> Sexo </span>
+        </div>
+        <br>
+        <!-- Endereço do usuário -->
+        <div tal:condition="python: len(endereco) >= 1">
+            <p>Endereço:</p>
+            <table class="tabelaFilmes">
+                <tr>
+                    <th class="tabelaLinha">Pais</th>
+                    <th class="tabelaLinha">Cidade</th>
+                    <th class="tabelaLinha">Sigla</th>
+                </tr>
+                <tr tal:repeat="end endereco">
+                    <td class="tabelaLinha"> ${python:end['pais']} </td>
+                    <td class="tabelaLinha"> ${python:end['cidade']} </td>
+                    <td class="tabelaLinha"> ${python:end['sigla']}</td>
+                </tr>
+            </table>
+        </div>
+        <div tal:condition="python: len(endereco) < 1">
+            <p>Endereço:</p>
+            <table class="tabelaFilmes">
+                <tr>
+                    <td class="tabelaLinha"> Não possui endereço</td>
+                </tr>
+            </table>
+        </div>
+        <!-- Todos endereços -->
+        <div tal:condition="python: len(enderecos) < 1">
+            <p>Endereço:</p>
+            <table class="tabelaFilmes">
+                <tr>
+                    <th class="tabelaLinha">Pais</th>
+                    <th class="tabelaLinha">Cidade</th>
+                    <th class="tabelaLinha">Sigla</th>
+                </tr>
+                <tr tal:repeat="end enderecos">
+                    <td class="tabelaLinha"> ${python:end['pais']} </td>
+                    <td class="tabelaLinha"> ${python:end['cidade']} </td>
+                    <td class="tabelaLinha"> ${python:end['sigla']}</td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <!-- Campo Filmes Favoritos com ul-->
+        <!-- <div>
+            <b><span>Filmes Favoritos:</span></b>
+            <ul tal:repeat="filme filmes">
+                <li tal:content="filme"> Lista dos filmes favoritos </li>
+                <li tal:condition="not:filme"> Sorry, no talks yet.</li>
+            </ul>
+        </div> -->
+        <!-- Campo Filmes Favoritos com tabela-->
+        <div>
+            <p>Filmes Favoritos:</p>
+            <table class="tabelaFilmes">
+                <tr tal:repeat="filme filmes">
+                    <td class="tabelaLinha" tal:content="filme"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</metal:content-core>
+</body>
+</html>
+</metal:page>

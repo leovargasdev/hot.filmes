@@ -1,0 +1,16 @@
+<metal:logo
+	    xmlns:tal="http://xml.zope.org/namespaces/tal"
+	    xmlns:metal="http://xml.zope.org/namespaces/metal"
+	    i18n:domain="plone">
+	<tal:imagotipo define="portal view/getPortal;">
+		<a id="portal-logo"
+		   title="Home"
+		   tal:attributes="href 	portal/absolute_url;
+		                   title 	portal/title;">
+
+		    <img tal:attributes="alt 	string:${context/portal_url}/++resource++hot.filmes/;
+		                         title 	view/logo_title;
+		                         src 	string:${context/portal_url}/++resource++hot.filmes/check-icon.png;"/>
+		</a>
+	</tal:imagotipo>
+</metal:logo>
