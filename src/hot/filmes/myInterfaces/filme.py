@@ -17,3 +17,7 @@ class Ifilme(Interface):
         title       = _(u'Dia de Lancamento e Horario'),
         required    = True
     )
+    # imagem = schema.NamedImage(
+    #     title       = _(u'Imagem do Filme'),
+    #     required    = True
+    # )

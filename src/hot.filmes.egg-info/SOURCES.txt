@@ -26,13 +26,13 @@ src/hot/filmes/browser/configure.zcml
 src/hot/filmes/browser/overrides/.gitkeep
 src/hot/filmes/browser/static/.gitkeep
 src/hot/filmes/browser/templates/footer.pt
+src/hot/filmes/browser/templates/icon.png
 src/hot/filmes/browser/templates/logo.pt
 src/hot/filmes/browser/templates/templateFilme.pt
 src/hot/filmes/browser/templates/templateLocalizacao.pt
 src/hot/filmes/browser/templates/templateUsuario.pt
 src/hot/filmes/browser/viewlets/__init__.py
 src/hot/filmes/browser/viewlets/footerViewlet.py
-src/hot/filmes/browser/viewlets/icon.png
 src/hot/filmes/browser/viewlets/logoViewlet.py
 src/hot/filmes/browser/views/__init__.py
 src/hot/filmes/browser/views/viewFilme.py

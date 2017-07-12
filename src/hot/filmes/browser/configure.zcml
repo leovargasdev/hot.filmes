@@ -33,13 +33,13 @@
       class=".views.viewLocalizacao.localizacao"
       permission="zope2.View"
       />
-    <!-- <browser:viewlet
+    <browser:viewlet
         name="HotFilmes.logo"
         manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
         template="templates/logo.pt"
         class=".viewlets.logoViewlet.logoViewlet"
         permission="zope.Public"
-        /> -->
+        />
     <!--<browser:viewlet
         name="HotFilme.footer"
         manager="plone.app.layout.viewlets.interfaces.IPortalFooter"

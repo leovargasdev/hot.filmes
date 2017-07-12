@@ -3,5 +3,5 @@
     <object name="usuario"      meta_type="Dexterity FTI"/>
     <object name="filme"        meta_type="Dexterity FTI"/>
     <object name="localizacao"  meta_type="Dexterity FTI"/>
-    <!-- <object name="teste"        meta_type="Dexterity FTI"/> -->
+    <object name="teste"        meta_type="Dexterity FTI"/>
 </object>
