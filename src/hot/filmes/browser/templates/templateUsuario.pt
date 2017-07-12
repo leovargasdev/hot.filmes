@@ -20,106 +20,154 @@
 
 <metal:content-core fill-slot="content-core">
     <style type="text/css">
-        .tabelaFilmes{
-            width: 50%;
-            margin-left: 15%;
-        }
-        .tabelaLinha{
+        th, td, pre, h1{
             text-align: center;
         }
+        pre{
+            font-size: 14px;
+        }
+        .linha{
+            height: 2px;
+            background-color: silver;
+        }
+        table{
+            border-color: silver;
+            border-width: 2;
+            line-height: 1.8;
+            background: rgba(220,220,220,0.3)
+        }
+        .bordaLinha table tr td{
+            border-color: silver;
+            border-width: 2;
+        }
+        .bordaLinha table tr th{
+            border-color: silver;
+            border-width: 2;
+        }
     </style>
-
     <div tal:define="
-                     nome       context/title;
-                     sobrenome  context/sobrenome;
+                     nomeComp   python: view.getNome();
                      cpf        python: view.getCPF();
                      sexo       python: view.getSexo();
                      filmes     python: view.getFilmesFavoritos();
                      endereco   python: view.getEndereco();
                      enderecos  python: view.getEnderecoALL();
                      aniver     context/aniversario">
-        <!-- Campo Nome/sobrenome -->
-        <div tal:condition="python: nome is not None">
-            <b><span >Nome:<span></b>
-            <span tal:content="nome"> nome </span>
-            <span tal:content="sobrenome"> sobrenome </span>
-        </div>
-        <br>
-        <!-- Campo cpf -->
-        <div>
-            <b><span class="">CPF:<span></b>
-            <span tal:content="string:${cpf}"> cpf </span>
-        </div>
-        <br>
-        <!-- Campo Aniversario -->
-        <div>
-            <b><span>Data de nascimento:</span></b>
-            <span tal:content="aniver"> aniversario </span>
-        </div>
-        <br>
-        <!-- Campo Sexo -->
-        <div>
-            <b><span>Sexo:</span></b>
-            <span tal:content="string:${sexo}"> Sexo </span>
-        </div>
-        <br>
-        <!-- Endereço do usuário -->
-        <div tal:condition="python: len(endereco) >= 1">
-            <p>Endereço:</p>
-            <table class="tabelaFilmes">
-                <tr>
-                    <th class="tabelaLinha">Pais</th>
-                    <th class="tabelaLinha">Cidade</th>
-                    <th class="tabelaLinha">Sigla</th>
-                </tr>
-                <tr tal:repeat="end endereco">
-                    <td class="tabelaLinha"> ${python:end['pais']} </td>
-                    <td class="tabelaLinha"> ${python:end['cidade']} </td>
-                    <td class="tabelaLinha"> ${python:end['sigla']}</td>
-                </tr>
-            </table>
-        </div>
-        <div tal:condition="python: len(endereco) < 1">
-            <p>Endereço:</p>
-            <table class="tabelaFilmes">
-                <tr>
-                    <td class="tabelaLinha"> Não possui endereço</td>
-                </tr>
-            </table>
-        </div>
-        <!-- Todos endereços -->
-        <div tal:condition="python: len(enderecos) > 1">
-            <p>Endereço:</p>
-            <table class="tabelaFilmes">
-                <tr>
-                    <th class="tabelaLinha">Pais</th>
-                    <th class="tabelaLinha">Cidade</th>
-                    <th class="tabelaLinha">Sigla</th>
-                </tr>
-                <tr tal:repeat="end enderecos">
-                    <td class="tabelaLinha"> ${python:end['pais']} </td>
-                    <td class="tabelaLinha"> ${python:end['cidade']} </td>
-                    <td class="tabelaLinha"> ${python:end['sigla']}</td>
-                </tr>
-            </table>
-        </div>
-        <br>
-        <!-- Campo Filmes Favoritos com ul-->
-        <!-- <div>
-            <b><span>Filmes Favoritos:</span></b>
-            <ul tal:repeat="filme filmes">
-                <li tal:content="filme"> Lista dos filmes favoritos </li>
-                <li tal:condition="not:filme"> Sorry, no talks yet.</li>
-            </ul>
-        </div> -->
-        <!-- Campo Filmes Favoritos com tabela-->
-        <div>
-            <p>Filmes Favoritos:</p>
-            <table class="tabelaFilmes">
-                <tr tal:repeat="filme filmes">
-                    <td class="tabelaLinha" tal:content="filme"></td>
-                </tr>
-            </table>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Usuário <span tal:content="context/title"></span></h1>
+                </div>
+            </div>
+            <br />
+            <div class="row"><div class="col-md-8 col-md-offset-2 linha"></div></div>
+            <br />
+            <br />
+            <!-- Campo Nome/sobrenome -->
+            <div class="row">
+                <div class="col-md-1 col-md-offset-3">
+                    <strong>Nome:<strong>
+                </div>
+                <div class="col-md-5">
+                    <pre tal:content="nomeComp"></pre>
+                </div>
+            </div>
+            <br />
+            <!-- Campo cpf -->
+            <div class="row">
+                <div class="col-md-1 col-md-offset-3">
+                    <strong>CPF:<strong>
+                </div>
+                <div class="col-md-5">
+                    <pre tal:content="string:${cpf}"></pre>
+                </div>
+            </div>
+            <br />
+            <!-- Campo Sexo -->
+            <div class="row">
+                <div class="col-md-1 col-md-offset-3">
+                    <strong>Sexo:<strong>
+                </div>
+                <div class="col-md-5">
+                    <pre tal:content="string:${sexo}"></pre>
+                </div>
+            </div>
+            <br />
+            <!-- Campo Aniversario -->
+            <div class="row">
+                <div class="col-md-2 col-md-offset-3">
+                    <strong>Data de nascimento:<strong>
+                </div>
+                <div class="col-md-4">
+                    <pre tal:content="aniver"></pre>
+                </div>
+            </div>
+            <br />
+            <!-- Endereço do usuário -->
+            <div class="row">
+                <div class="col-md-1 col-md-offset-3">
+                    <strong>Endereço:<strong>
+                </div>
+                <div class="col-md-5 bordaLinha">
+                    <!-- Só endereço do Usuário -->
+                    <table tal:condition="python: len(endereco) >= 1">
+                        <tr>
+                            <th>Pais</th>
+                            <th>Cidade</th>
+                            <th>Sigla</th>
+                        </tr>
+                        <tr tal:repeat="end endereco">
+                            <td> ${python:end['pais']} </td>
+                            <td> ${python:end['cidade']} </td>
+                            <td> ${python:end['sigla']}</td>
+                        </tr>
+                    </table>
+                    <!-- Caso não exista endereço -->
+                    <table tal:condition="python: len(endereco) < 1">
+                        <tr>
+                            <td> Não possui endereço</td>
+                        </tr>
+                    </table>
+                    <!-- Todos os endereços do Sistema -->
+                    <table tal:condition="python: len(enderecos) < 1">
+                        <!-- Nesse condition desativa essa div -->
+                        <tr>
+                            <th>Pais</th>
+                            <th>Cidade</th>
+                            <th>Sigla</th>
+                        </tr>
+                        <tr tal:repeat="end enderecos">
+                            <td> ${python:end['pais']} </td>
+                            <td> ${python:end['cidade']} </td>
+                            <td> ${python:end['sigla']}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <br />
+            <!-- Campo Filmes Favoritos -->
+            <div class="row">
+                <!-- Campo Filmes Favoritos com ul
+                <b><span>Filmes Favoritos:</span></b>
+                <ul tal:repeat="filme filmes">
+                    <li tal:content="filme"> Lista dos filmes favoritos </li>
+                    <li tal:condition="not:filme"> Sorry, no talks yet.</li>
+                </ul>-->
+                <!-- Campo Filmes Favoritos com tabela-->
+                <div class="col-md-2 col-md-offset-3">
+                    <strong>Filmes Favoritos:</strong>
+                </div>
+                <div class="col-md-4 bordaLinha">
+                    <table class="tabelaFilmes">
+                        <tr>
+                            <th>Filmes</th>
+                        </tr>
+                        <tr tal:repeat="filme filmes">
+                            <td class="tabelaLinha" tal:content="filme"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </metal:content-core>

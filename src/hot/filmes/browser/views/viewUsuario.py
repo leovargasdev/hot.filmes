@@ -18,6 +18,9 @@ class usuario(BrowserView):
 	def __call__(self):
 		return self.index()
 
+	def getNome(self):
+		return self.context.title + " " + self.context.sobrenome
+
 	def getFilmesFavoritos(self):
 		filmes = self.context.filmesFavoritos
 		result = []

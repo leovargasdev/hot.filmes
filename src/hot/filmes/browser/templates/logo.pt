@@ -10,7 +10,7 @@
 
 		    <img tal:attributes="alt 	view/logo_alt;
 		                         title 	view/logo_title;
-		                       	 src	"/>
+		                       	 src	string:${context/portal_url}/icon.png;"/>
 		</a>
 	</tal:imagotipo>
 </metal:logo>
