@@ -1,16 +1,9 @@
-<metal:logo
-	    xmlns:tal="http://xml.zope.org/namespaces/tal"
-	    xmlns:metal="http://xml.zope.org/namespaces/metal"
-	    i18n:domain="plone">
-	<tal:imagotipo define="portal view/getPortal;">
-		<a id="portal-logo"
-		   title="Home"
-		   tal:attributes="href 	portal/absolute_url;
-		                   title 	portal/title;">
 
-		    <img tal:attributes="alt 	view/logo_alt;
-		                         title 	view/logo_title;
-		                       	 src	string:${context/portal_url}/++resource++imagens/icon.png;"/>
-		</a>
-	</tal:imagotipo>
-</metal:logo>
+<style type="text/css">
+	@import url("${context/portal_url}/++resource++includeCSS/logo.css");
+</style>
+<div tal:define="portal view/getPortal;">
+	<a id="hotfilmes-logo" title="Home" tal:attributes="href portal/absolute_url; title portal/title;">
+	    <img src="${context/portal_url}/++resource++includeImg/logoIcon.png"/>
+	</a>
+</div>

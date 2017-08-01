@@ -3,36 +3,45 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="hot.filmes">
-  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
-  <include package="z3c.jbot" file="meta.zcml" />
-  <browser:jbot
-      directory="overrides"
-      layer="hot.filmes.interfaces.IHotFilmesLayer"
-      />
-  <!-- Pagina Filme -->
-  <browser:page
-      name="templateFilme"
-      for="*"
-      layer="zope.interface.Interface"
-      class=".views.viewFilme.filme"
-      permission="zope2.View"
-      />
-  <!-- Pagina Usuario -->
-  <browser:page
-      name="templateUsuario"
-      for="*"
-      layer="zope.interface.Interface"
-      class=".views.viewUsuario.usuario"
-      permission="zope2.View"
-      />
-  <!-- Pagina localizacao -->
-  <browser:page
-      name="templateLocalizacao"
-      for="*"
-      layer="zope.interface.Interface"
-      class=".views.viewLocalizacao.localizacao"
-      permission="zope2.View"
-      />
+    <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+    <include package="z3c.jbot" file="meta.zcml" />
+    <browser:jbot
+        directory="overrides"
+        layer="hot.filmes.interfaces.IHotFilmesLayer"
+    />
+    <browser:resourceDirectory
+        name="includeCSS"
+        directory="resources/css"
+        />
+    <browser:resourceDirectory
+        name="includeImg"
+        directory="resources/img"
+        />
+    <!-- Pagina Filme -->
+    <browser:page
+        name="templateFilme"
+        for="*"
+        layer="zope.interface.Interface"
+        class=".views.viewFilme.filme"
+        permission="zope2.View"
+        />
+    <!-- Pagina Usuario -->
+    <browser:page
+        name="templateUsuario"
+        for="*"
+        layer="zope.interface.Interface"
+        class=".views.viewUsuario.usuario"
+        permission="zope2.View"
+        />
+    <!-- Pagina localizacao -->
+    <browser:page
+        name="templateLocalizacao"
+        for="*"
+        layer="zope.interface.Interface"
+        class=".views.viewLocalizacao.localizacao"
+        permission="zope2.View"
+        />
+    <!-- ViewLet Logo -->
     <browser:viewlet
         name="HotFilmes.logo"
         manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
@@ -40,18 +49,4 @@
         class=".viewlets.logoViewlet.logoViewlet"
         permission="zope.Public"
         />
-    <!--<browser:viewlet
-        name="HotFilme.footer"
-        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
-        template="templates/footer.pt"
-        class=".viewlets.footerViewlet.footerViewlet"
-        permission="zope2.View"
-        /> -->
-
-  <!-- Publish static files -->
-  <plone:static
-      name="hot.filmes"
-      type="plone"
-      directory="static"
-      />
 </configure>

@@ -24,15 +24,15 @@ src/hot/filmes/testing.py
 src/hot/filmes/browser/__init__.py
 src/hot/filmes/browser/configure.zcml
 src/hot/filmes/browser/overrides/.gitkeep
+src/hot/filmes/browser/resources/css/logo.css
+src/hot/filmes/browser/resources/img/logoIcon.png
 src/hot/filmes/browser/static/.gitkeep
 src/hot/filmes/browser/templates/footer.pt
-src/hot/filmes/browser/templates/icon.png
 src/hot/filmes/browser/templates/logo.pt
 src/hot/filmes/browser/templates/templateFilme.pt
 src/hot/filmes/browser/templates/templateLocalizacao.pt
 src/hot/filmes/browser/templates/templateUsuario.pt
 src/hot/filmes/browser/viewlets/__init__.py
-src/hot/filmes/browser/viewlets/footerViewlet.py
 src/hot/filmes/browser/viewlets/logoViewlet.py
 src/hot/filmes/browser/views/__init__.py
 src/hot/filmes/browser/views/viewFilme.py
@@ -54,7 +54,6 @@ src/hot/filmes/profiles/default/types/localizacao.xml
 src/hot/filmes/profiles/default/types/teste.xml
 src/hot/filmes/profiles/default/types/usuario.xml
 src/hot/filmes/profiles/uninstall/browserlayer.xml
-src/hot/filmes/resources/icon.png
 src/hot/filmes/tests/__init__.py
 src/hot/filmes/tests/test_bla.py
 src/hot/filmes/tests/test_robot.py
