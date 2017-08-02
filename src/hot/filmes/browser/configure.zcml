@@ -10,11 +10,11 @@
         layer="hot.filmes.interfaces.IHotFilmesLayer"
     />
     <browser:resourceDirectory
-        name="includeCSS"
+        name="importCSS"
         directory="resources/css"
         />
     <browser:resourceDirectory
-        name="includeImg"
+        name="importImg"
         directory="resources/img"
         />
     <!-- Pagina Filme -->
@@ -47,6 +47,14 @@
         manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
         template="templates/logo.pt"
         class=".viewlets.logoViewlet.logoViewlet"
+        permission="zope.Public"
+        />
+    <!-- ViewLet Barra de Busca -->
+    <browser:viewlet
+        name="HotFilmes.barraBusca"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        template="templates/barraBusca_viewlet.pt"
+        class=".viewlets.barraBuscaViewlet.barraBuscaViewlet"
         permission="zope.Public"
         />
 </configure>

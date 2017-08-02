@@ -20,30 +20,7 @@
 
 <metal:content-core fill-slot="content-core">
     <style type="text/css">
-        th, td, pre, h1{
-            text-align: center;
-        }
-        pre{
-            font-size: 14px;
-        }
-        .linha{
-            height: 2px;
-            background-color: silver;
-        }
-        table{
-            border-color: silver;
-            border-width: 2;
-            line-height: 1.8;
-            background: rgba(220,220,220,0.3)
-        }
-        .bordaLinha table tr td{
-            border-color: silver;
-            border-width: 2;
-        }
-        .bordaLinha table tr th{
-            border-color: silver;
-            border-width: 2;
-        }
+        @import url("${context/portal_url}/++resource++importCSS/usuario.css");
     </style>
     <div tal:define="
                      nomeComp   python: view.getNome();

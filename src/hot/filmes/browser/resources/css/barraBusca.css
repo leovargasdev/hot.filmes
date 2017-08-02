@@ -1,0 +1,131 @@
+/*CSS refente a barra de busca do site*/
+
+#portal-searchbox{
+    width: 100%;
+    display: table;
+}
+.inputBusca{
+    width: 80%;
+    margin-top: auto;
+    margin-left: 3%;
+}
+.inputBusca input[type=text]{
+    height: 35px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 17px;
+    outline: none; /*Desativa as propriedades nativas*/
+    float: left;
+    font-style: italic;
+    -webkit-box-shadow: none;
+    padding: 0px;
+    line-height: 3px;
+}
+.inputBtn input[type=image]{
+    width: 30px;
+    height: 30px;
+}
+.inputBtn{
+    width: 10%;
+    float: right;
+    margin-right: 3%;
+}
+.linha{
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-top: -4px;
+    border-radius: 2px;
+    height: 2px;
+    width: 100%;
+}
+::-moz-placeholder{ /* Firefox */
+    color: rgba(255, 255, 255, 0.8)!important;
+    font-size: 17px;
+    font-style: italic;
+}
+::-webkit-input-placeholder { /* Chrome */
+   color: rgba(255, 255, 255, 0.8)!important;
+   font-size: 17px;
+   font-style: italic;
+}
+.conteudo{
+    height: auto;
+    width: 400px;
+    margin-top: -70px;
+    float: right;
+}
+.campoBusca{
+    width: 60%;
+    float: left;
+}
+.linksRedesSociais{
+    margin: 4px 38px auto 20px;
+    float: right;
+    width: 18%;
+}
+.iconFacebook{
+    height: 22px;
+    width:  22px;
+}
+.iconTwitter{
+    height: 27px;
+    width: 27px;
+    margin-left: 7px;
+}
+@media only screen and (max-width: 1000px){
+    .conteudo{
+        width: 62%;
+        margin-right: -38px;
+        margin-left: 10px;
+    }
+}
+@media only screen and (max-width: 645px){
+    .conteudo{
+        width: 80%;
+        margin: 10px auto auto auto;
+    }
+}
+@media only screen and (max-width: 530px){
+    .conteudo{
+        width:  94%;
+        margin: 20px auto -10px auto;
+    }
+    .linksRedesSociais{
+        margin: 6px 20px auto 0px;
+    }
+    .campoBusca{
+        width: 66%;
+    }
+    .iconFacebook{
+        height: 19px;
+        width:  19px;
+    }
+    .iconTwitter{
+        height: 24px;
+        width: 24px;
+        margin-left: 4px;
+    }
+    .inputBusca{
+        width: 83%;
+    }
+    .inputBusca input[type=text]{
+        height: 30px;
+        font-size: 14px;
+    }
+    ::-webkit-input-placeholder {
+       font-size: 14px;
+    }
+    .inputBtn input[type=image] {
+        width: 25px;
+        height: 25px;
+    }
+
+}
+@media only screen and (max-width: 420px){
+    .inputBtn{
+        width:  22%;
+    }
+    .inputBusca{
+        width: 70%;
+    }
+}

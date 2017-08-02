@@ -1,0 +1,10 @@
+pre, h1{
+    text-align: center;
+}
+pre{
+    font-size: 14px;
+}
+.linha{
+    height: 2px;
+    background-color: silver;
+}

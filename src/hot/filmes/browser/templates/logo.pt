@@ -1,9 +1,9 @@
 
 <style type="text/css">
-	@import url("${context/portal_url}/++resource++includeCSS/logo.css");
+	@import url("${context/portal_url}/++resource++importCSS/logo.css");
 </style>
 <div tal:define="portal view/getPortal;">
 	<a id="hotfilmes-logo" title="Home" tal:attributes="href portal/absolute_url; title portal/title;">
-	    <img src="${context/portal_url}/++resource++includeImg/logoIcon.png"/>
+	    <img src="${context/portal_url}/++resource++importImg/iconLogo.png"/>
 	</a>
 </div>

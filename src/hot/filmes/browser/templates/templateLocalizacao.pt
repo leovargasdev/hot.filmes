@@ -20,16 +20,7 @@
 
 <metal:content-core fill-slot="content-core">
     <style type="text/css">
-        pre, h1{
-            text-align: center;
-        }
-        pre{
-            font-size: 14px;
-        }
-        .linha{
-            height: 2px;
-            background-color: silver;
-        }
+        @import url("${context/portal_url}/++resource++importCSS/localizacao.css");
     </style>
     <div tal:define="
                      pais       context/title;

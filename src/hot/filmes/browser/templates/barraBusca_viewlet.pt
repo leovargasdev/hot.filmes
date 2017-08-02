@@ -1,0 +1,27 @@
+<style type="text/css">
+    @import url("${context/portal_url}/++resource++importCSS/barraBusca.css");
+</style>
+<div class="conteudo">
+    <div class="campoBusca">
+        <div id="portal-searchbox" i18n:domain="plone" tal:define="navigation_root_url view/navigation_root_url;">
+            <form id="searchGadget_form" tal:define="classe  python: 'active-livesearch' and 'pat-livesearch' or ''; acao string:${navigation_root_url}/@@search; busca string:ajaxUrl:${navigation_root_url}/@@ajax-search"
+            role="search" action="${acao}" data-pat-livesearch= "${busca}" class="${classe}">
+                <div class="inputBusca">
+                    <input name="SearchableText" type="text" id="searchGadget" title="Buscar no Site" placeholder="Buscar no portal" autocomplete="off">
+                </div>
+                <div class="inputBtn">
+                    <input type="image" src="${context/portal_url}/++resource++importImg/iconSearch.png" alt="Submit" width="90%" height="100%">
+                </div>
+            </form>
+        </div>
+        <div class="linha"></div>
+    </div>
+    <div class="linksRedesSociais">
+        <a href="https://www.facebook.com/uffsonline">
+            <img class="iconFacebook"  src="${context/portal_url}/++resource++importImg/iconFacebook.png">
+        </a>
+        <a href="https://twitter.com/uffsonline">
+            <img class="iconTwitter"   src="${context/portal_url}/++resource++importImg/iconTwitter.png">
+        </a>
+    </div>
+</div>
