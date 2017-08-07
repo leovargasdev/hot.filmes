@@ -1,0 +1,11 @@
+.tituloPagina{
+    text-align: center;
+    font-size: 40px;
+}
+.abasPesquisa{
+    background-color: rgba(227, 227, 227, 0.93)!important;
+}
+.autotabs{
+    border-color: rgba(227, 227, 227, 0.93)!important;
+    border-width: 2px!important;
+}

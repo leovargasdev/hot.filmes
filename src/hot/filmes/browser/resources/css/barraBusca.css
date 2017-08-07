@@ -1,39 +1,47 @@
 /*CSS refente a barra de busca do site*/
-
+.containerBarraBusca{
+    height: auto;
+    width: 400px;
+    margin-top: 13px;
+    float: right;
+}
+.campoBusca{ /*Container do input de busca e do icone da lupa*/
+    width: 60%;
+    float: left;
+}
 #portal-searchbox{
     width: 100%;
     display: table;
 }
-.inputBusca{
-    width: 80%;
+.inputBusca{ /* Conteiner do input de busca*/
+    width: 85%;
     margin-top: auto;
-    margin-left: 3%;
 }
-.inputBusca input[type=text]{
+.inputBusca input[type=text]{ /* Alteração das propriedades nativas do input*/
     height: 35px;
     background: none;
     border: none;
     color: rgba(255, 255, 255, 0.9);
     font-size: 17px;
-    outline: none; /*Desativa as propriedades nativas*/
+    outline: none;
     float: left;
     font-style: italic;
     -webkit-box-shadow: none;
-    padding: 0px;
     line-height: 3px;
+    padding-left: 8px;
+}
+.inputBtn{ /* Conteiner do input image(icone lupa)*/
+    width: 10%;
+    float: right;
+    margin-right: 3%;
 }
 .inputBtn input[type=image]{
     width: 30px;
     height: 30px;
 }
-.inputBtn{
-    width: 10%;
-    float: right;
-    margin-right: 3%;
-}
-.linha{
+.linha{ /* Linha branca que fica em baixo do input de busca e do input image*/
     background-color: rgba(255, 255, 255, 0.9);
-    margin-top: -4px;
+    margin-top: -5px;
     border-radius: 2px;
     height: 2px;
     width: 100%;
@@ -48,17 +56,30 @@
    font-size: 17px;
    font-style: italic;
 }
-.conteudo{
-    height: auto;
-    width: 400px;
-    margin-top: -70px;
-    float: right;
+.livesearch-results{
+    border: none!important;
+    outline: none!important;
+    font-size: 14px;
+    background-color: rgba(230, 230, 230, 0.95)!important;
 }
-.campoBusca{
-    width: 60%;
-    float: left;
+.livesearch-results h4 a:hover{
+    color: rgba(9, 154, 94, 1);
 }
-.linksRedesSociais{
+.livesearch-results h4{ /*Alinhar link no centro*/
+    text-align: center;
+}
+.livesearch-results p{
+    margin-bottom: 1px!important;
+    padding: 0px 10px;
+    font-size: 13px;
+}
+.livesearch-results:hover{ /* Cor de fundo da ul quando o mouse esta em cima */
+    background-color: rgba(200, 193, 193, 0.95)!important;
+}
+.search-result:hover{ /* Cor de fundo da li quando o mouse esta em cima */
+    background-color: rgba(227, 227, 227, 0.93)!important;
+}
+.linksRedesSociais{ /* Container dos icones das redes sociais*/
     margin: 4px 38px auto 20px;
     float: right;
     width: 18%;
@@ -119,7 +140,16 @@
         width: 25px;
         height: 25px;
     }
-
+    .livesearch-results{
+        font-size: 12px;
+    }
+    .livesearch-results h4{ /*Alinhar link no centro*/
+        font-size: 12px;
+    }
+    .livesearch-results p{
+        font-size: 11px;
+        padding-left: 5px;
+    }
 }
 @media only screen and (max-width: 420px){
     .inputBtn{

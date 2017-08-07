@@ -57,4 +57,19 @@
         class=".viewlets.barraBuscaViewlet.barraBuscaViewlet"
         permission="zope.Public"
         />
+    <!-- <browser:viewlet
+        name="uffs_novaHome"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContent"
+        template="templates/home_viewlet.pt"
+        class=".viewlets.homeViewlet.homeViewlet"
+        permission="zope.Public"
+        /> -->
+    <browser:page
+         name="mySearch"
+         permission="zope2.View"
+         class=".views.mySearch.Search"
+         for="plone.app.layout.navigation.interfaces.INavigationRoot"
+         template="templates/mySearch.pt"
+         />
+
 </configure>

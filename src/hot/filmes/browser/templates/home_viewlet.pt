@@ -1,0 +1,10 @@
+<style type="text/css">
+    .geral{
+        height: 500px;
+        width: 100%;
+        background-color: #457E5D;
+    }
+</style>
+<div class="geral">
+    <p> bla bla bla </p>
+</div>
