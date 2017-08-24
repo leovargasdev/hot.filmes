@@ -36,10 +36,13 @@ class filme(BrowserView):
 		return self.index()
 
 	def getSinopse(self):
+		# cores = ["azul", "rosa", "verde", "preto", "vermelho"]
+		# self.context.setSubject(tuple(cores))
+		# self.context.reindexObject()
 		if not self.context.sinopse:
 			return 'Não foi cadastrada sinopse para este filme'
 		return self.context.sinopse
-		
+
 	def getData(self):
 		return self.context.dataLancamento.date()
 

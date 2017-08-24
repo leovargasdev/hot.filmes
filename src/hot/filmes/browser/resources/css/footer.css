@@ -1,0 +1,117 @@
+#portal-uffs-footer{
+    padding-bottom: 12px;
+}
+.tituloFooter h3{
+    text-align: center;
+    font-weight: 300;
+}
+.tituloFooter{
+    margin-bottom: 22px;
+}
+.textoConteudoFooter p{
+    font-weight: 400;
+    line-height: 8px;
+    font-size: 11px;
+    text-align: left;
+}
+.iconTwitterFooter{
+    height: 32px;
+    width: 32px;
+}
+.iconFacebookFooter{
+    height: 27px;
+    width:  27px;
+    margin-left: 6px;
+}
+.iconAcessoInfoFooter{
+    height: 48px;
+    width: 100px;
+    margin-left: 10px;
+}
+.coluna2Footer{
+    padding-left: 30px;
+}
+.coluna3Footer{
+    padding-left: 12px;
+}
+.coluna4Footer{
+    margin-top: 20px;
+    font-size: 14px;
+}
+.espacamentoColuna4Footer{
+    margin-bottom: 50px;
+}
+.coluna5Footer{
+    margin-top: 27px;
+    font-size: 14px;
+}
+.espacamentoColuna5Footer{
+    margin-bottom: 60px;
+}
+.espacoComBR{
+    display: inherit;
+}
+
+/* Quando entrar no col-md */
+@media only screen and (max-width: 1200px){
+    .textoConteudoFooter p{
+        line-height: 10px;
+        font-size: 10px;
+    }
+    .coluna2Footer{
+        padding-left: 23px;
+    }
+    .coluna3Footer{
+        padding-left: 0px;
+    }
+}
+/* Quando entrar no col-sm */
+@media only screen and (max-width: 992px){
+    .coluna4Footer, .coluna5Footer{
+        margin-top: 10px;
+    }
+    .coluna2Footer{
+        padding-left: 0px;
+    }
+    .textoConteudoFooter p{
+        font-size: 11px;
+    }
+    .espacamentoColuna4Footer, .espacamentoColuna5Footer{
+        margin-left: -15px;
+    }
+    .espacamentoColuna4Footer{
+        margin-bottom: 16px;
+    }
+    .espacamentoColuna5Footer{
+        margin-bottom: 30px;
+    }
+    .iconAcessoInfoFooter{
+        height: 44px;
+        width: 96px;
+        margin-left: 2px;
+    }
+}
+/* Quando entrar no col-xs */
+@media only screen and (max-width: 767px){
+    .coluna1Footer{
+        margin-left: 14%;
+    }
+    .coluna1Footer{
+        margin-bottom: 13px;
+    }
+}
+@media only screen and (max-width: 670px){
+    .coluna1Footer{
+        margin-left: 17%;
+    }
+    .coluna2Footer, .coluna3Footer, .coluna4Footer, .coluna5Footer{
+        width: 78%;
+        margin-left: 21%;
+    }
+    .espacamentoColuna4Footer {
+        margin-bottom: 15px;
+    }
+    .espacamentoColuna5Footer {
+        margin-bottom: 14px;
+    }
+}

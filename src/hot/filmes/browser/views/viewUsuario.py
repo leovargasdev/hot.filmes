@@ -19,9 +19,9 @@ class usuario(BrowserView):
 		return self.index()
 
 	def getNome(self):
-		if not self.context.sobrenome: #caso não tenha preenchido o campo sobrenome 
+		if not self.context.description: #caso não tenha preenchido o campo sobrenome
 			return self.context.title
-		return self.context.title + " " + self.context.sobrenome
+		return self.context.title + " " + self.context.description
 
 	def getFilmesFavoritos(self):
 		filmes = self.context.filmesFavoritos

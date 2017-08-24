@@ -57,6 +57,14 @@
         class=".viewlets.barraBuscaViewlet.barraBuscaViewlet"
         permission="zope.Public"
         />
+    <!-- ViewLet Footer -->
+    <browser:viewlet
+        name="HotFilmes.footer"
+        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+        template="templates/footer_viewlet.pt"
+        class=".viewlets.footerViewlet.footerViewlet"
+        permission="zope.Public"
+        />
     <!-- <browser:viewlet
         name="uffs_novaHome"
         manager="plone.app.layout.viewlets.interfaces.IAboveContent"

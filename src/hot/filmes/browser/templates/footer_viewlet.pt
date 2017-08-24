@@ -1,0 +1,150 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt" xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal" xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="pt" tal:omit-tag="" i18n:domain="plone">
+    <head>
+    </head>
+    <footer id="portal-uffs-footer">
+        <style type="text/css">
+            @import url("${context/portal_url}/++resource++importCSS/footer.css");
+        </style>
+        <!-- Titulo Footer -->
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="tituloFooter">
+                    <h3> FALE CONOSCO </h3>
+                </div>
+            </div>
+        </div>
+        <!-- Colunas com o Conteúdo -->
+        <div class="row">
+            <!-- Coluna Nº 1 -->
+            <div class="col-xs-10 col-xs-offset-2
+                        col-sm-4 col-sm-offset-0
+                        col-md-2 col-md-offset-0
+                        col-lg-2 col-lg-offset-0
+                        coluna1Footer">
+                <h5> <strong> Reitoria </strong> </h5>
+                <div class="textoConteudoFooter">
+                    <p>Av. Fernando Machado, 108 E</p>
+                    <p>Centro, Chapecó, SC - Brasil</p>
+                    <p>Caixa Postal 181 - CEP 89802-112</p>
+                    <p>Telefone (49) 2049 3100</p>
+                    <p>CNPJ 11.234.780/0001-50</p>
+                    <a href="#" style="color: #92a969">contato@uffs.edu.br</a>
+                </div>
+            </div>
+            <!-- Coluna Nº 2 -->
+            <div class="col-xs-4 col-xs-offset-2
+                        col-sm-4 col-sm-offset-0
+                        col-md-3 col-md-offset-0
+                        col-lg-3 col-lg-offset-0
+                        coluna2Footer">
+                <h5> <strong> Campus Cerro Largo-RS </strong> </h5>
+                <div class="textoConteudoFooter">
+                    <p>Rua Jacob Reinaldo Haupenthal, 1.580,</p>
+                    <p>São Pedro, CEP 97900-000</p>
+                    <p>Telefone (55) 3359 3950</p>
+                </div>
+                <br />
+                <h5> <strong> Campus Chapecó-SC </strong> </h5>
+                <div class="textoConteudoFooter">
+                    <p>Rodovia SC 484 Km 02, Fronteira Sul,</p>
+                    <p>CEP 89815-899</p>
+                    <p>Telefone (49) 2049 2600</p>
+                </div>
+                <br />
+                <h5> <strong> Campus Erechim-RS </strong> </h5>
+                <div class="textoConteudoFooter">
+                    <p>ERS 135 - Km 72, 200, Caixa Postal 764,</p>
+                    <p>CEP 99700-970</p>
+                    <p>Telefone (54) 3321 7050</p>
+                </div>
+
+            </div>
+            <!-- Coluna Nº 3 -->
+            <div class="col-xs-4 col-xs-offset-2
+                        col-sm-4 col-sm-offset-0
+                        col-md-3 col-md-offset-0
+                        col-lg-3 col-lg-offset-0
+                        coluna3Footer">
+                <h5> <strong> Campus Laranjeiras do Sul-PR </strong> </h5>
+                <div class="textoConteudoFooter">
+                    <p>Rodovia BR 158 - Km 405, CEP 85301-970</p>
+                    <p>Telefone (42) 3635 0000</p>
+                </div>
+                <br />
+                <h5> <strong> Campus Passo Fundo-RS </strong> </h5>
+                <div class="textoConteudoFooter">
+                    <p>Rodovia RS 153 - Km 03, Seminário</p>
+                    <p>Nossa Senhora Aparecida,</p>
+                    <p>Jardim América, CEP 99034-600</p>
+                    <p>Telefone (54) 3335 8515</p>
+                </div>
+                <br />
+                <h5> <strong> Campus Realeza-PR </strong> </h5>
+                <div class="textoConteudoFooter">
+                    <p>Avenida Edmundo Gaievski, 1000, Acesso</p>
+                    <p>Rodovia PR 182, Km 466,</p>
+                    <p>Cx Postal 253, CEP 85770-000</p>
+                    <p>Telefone (46) 3543 8300</p>
+                </div>
+            </div>
+            <!-- Coluna Nº 4 -->
+            <div class="col-xs-4 col-xs-offset-2
+                        col-sm-4 col-sm-offset-4
+                        col-md-2 col-md-offset-0
+                        col-lg-2 col-lg-offset-0
+                        coluna4Footer">
+                <div class="row ">
+                    <!-- Icone Twitter -->
+                    <div class="col-xs-12 col-sm-12 col-md-12 espacamentoColuna4Footer">
+                        <a href="https://twitter.com/uffsonline">
+                            <img class="iconTwitterFooter" alt="Icone Twitter" src="${context/portal_url}/++resource++importImg/iconTwitter.png">
+                            <span> @uffsonline </span>
+                        </a>
+                    </div>
+                    <!-- Icone Facebook -->
+                    <div class="col-xs-12 col-sm-12 col-md-12 espacamentoColuna4Footer">
+                        <a href="https://www.facebook.com/uffsonline">
+                            <img class="iconFacebookFooter" alt="Icone Facebook" src="${context/portal_url}/++resource++importImg/iconFacebook.png">
+                            <span> &nbsp; uffsonline </span>
+                        </a>
+                    </div>
+                    <!-- Icone Acesso -->
+                    <div class="col-xs-12 col-sm-12 col-md-12 espacamentoColuna4Footer">
+                        <a href="https://www.uffs.edu.br/acesso_facil/transparencia/servico-de-informacao-ao-cidadao-e-sic/e-sic">
+                            <img class="iconAcessoInfoFooter" alt="Icone Acesso à informação" src="${context/portal_url}/++resource++importImg/iconAcessoInfo.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Coluna Nº 5 -->
+            <div class="col-xs-4
+                        col-sm-4
+                        col-md-2
+                        col-lg-2
+                        coluna5Footer">
+                <div class="row">
+                    <!-- Ouvidoria -->
+                    <div class="col-xs-12 col-sm-12 col-md-12 espacamentoColuna5Footer">
+                        <a tal:attributes="href string:${context/@@plone_portal_state/portal_url}/institucional/reitoria/ouvidoria/apresentacao/ouvidoria">
+                            <span>Ouvidoria</span>
+                        </a>
+                    </div>
+                    <!-- Lista Telefônica -->
+                    <div class="col-xs-12 col-sm-12 col-md-12 espacamentoColuna5Footer">
+                        <a ref="https://telefones.uffs.edu.br">
+                            <span>Lista Telefônica da UFFS</span>
+                        </a>
+                    </div>
+                    <!-- Sala de Imprensa -->
+                    <div class="col-xs-12 col-sm-12 col-md-12 espacamentoColuna5Footer">
+                        <a tal:attributes="href string:${context/@@plone_portal_state/portal_url}/acesso_facil/imprensa/sala-de-imprensa">
+                            <span>Sala de Imprensa</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</html>

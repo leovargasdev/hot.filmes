@@ -7,8 +7,14 @@ from z3c.relationfield.schema import RelationChoice, RelationList
 from zope.schema.interfaces import IContextSourceBinder
 from zope.interface import directlyProvides
 
+from collective import dexteritytextindexer
+from plone.autoform.interfaces import IFormFieldProvider
+from plone.supermodel.model import Schema
+from zope.interface import alsoProvides
+
 sexos = [["m", "Masculino"], ["f", "Feminino"]]
-opSexos = SimpleVocabulary([SimpleTerm(value=sexos[0][0], title=sexos[0][1]), SimpleTerm(value=sexos[1][0], title=sexos[1][1])])
+opSexos = SimpleVocabulary([SimpleTerm(value=sexos[0][0], title=sexos[0][1]),
+                            SimpleTerm(value=sexos[1][0], title=sexos[1][1])])
 
 def possibleOrganizers(context):
     terms = []
@@ -27,8 +33,12 @@ class Iusuario(Interface):
         title       = _(u'Nome'),
         required    = True
     )
-    sobrenome = schema.TextLine(
+    description = schema.TextLine(
         title       = _(u'Sobrenome'),
+        required    = False
+    )
+    apelido = schema.TextLine(
+        title       = _(u'Apelido'),
         required    = False
     )
     cpf = schema.TextLine(
@@ -65,3 +75,6 @@ class Iusuario(Interface):
         title       = (u'Data de Nascimento'),
         required    = False
     )
+    dexteritytextindexer.searchable('title', 'description', 'apelido')
+
+alsoProvides(Iusuario, IFormFieldProvider)

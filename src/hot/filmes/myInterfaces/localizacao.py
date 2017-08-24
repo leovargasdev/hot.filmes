@@ -2,7 +2,13 @@ from hot.filmes import _
 from zope import schema
 from zope.interface import Interface
 
-class Ilocalizacao(Interface):
+# bibliotecas para otimizar busca
+from collective import dexteritytextindexer
+from plone.autoform.interfaces import IFormFieldProvider
+from plone.supermodel.model import Schema
+from zope.interface import alsoProvides
+
+class Ilocalizacao(Schema):
     title = schema.TextLine(
         title       = _(u'Pais'),
         required    = True
@@ -16,8 +22,14 @@ class Ilocalizacao(Interface):
         description = _(u'abreviatura'),
         required    = False
     )
+    # campo para pegar os subject do objeto
+    tagsObj = schema.TextLine(
+        title       = _(u'Tags'),
+        required    = False
+    )
+    dexteritytextindexer.searchable('cidade', 'title', 'sigla', 'tagsObj')
 
-
+alsoProvides(Ilocalizacao, IFormFieldProvider)
 
     # campo com checkbox de uma escolha
     # <field name="type_of_talk" type="zope.schema.Choice"

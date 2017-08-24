@@ -4,4 +4,5 @@
     <object name="filme"        meta_type="Dexterity FTI"/>
     <object name="localizacao"  meta_type="Dexterity FTI"/>
     <object name="teste"        meta_type="Dexterity FTI"/>
+    <object name="atoNormativo" meta_type="Dexterity FTI"/>
 </object>
