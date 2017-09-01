@@ -42,6 +42,7 @@ Instale o hot.filmes adicionando-o buildout::
     ...
 
     eggs =
+	collective.dexteritytextindexer
         hot.filmes
 
     develop =
