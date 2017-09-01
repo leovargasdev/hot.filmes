@@ -18,6 +18,7 @@ src/hot.filmes.egg-info/requires.txt
 src/hot.filmes.egg-info/top_level.txt
 src/hot/filmes/__init__.py
 src/hot/filmes/configure.zcml
+src/hot/filmes/funcoes.py
 src/hot/filmes/interfaces.py
 src/hot/filmes/setuphandlers.py
 src/hot/filmes/testing.py
@@ -60,7 +61,6 @@ src/hot/filmes/locales/update.sh
 src/hot/filmes/myInterfaces/__init__.py
 src/hot/filmes/myInterfaces/atoNormativo.py
 src/hot/filmes/myInterfaces/filme.py
-src/hot/filmes/myInterfaces/funcoesInterfaces.py
 src/hot/filmes/myInterfaces/localizacao.py
 src/hot/filmes/myInterfaces/teste.py
 src/hot/filmes/myInterfaces/usuario.py

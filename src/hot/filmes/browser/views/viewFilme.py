@@ -26,8 +26,8 @@ from datetime import date
 from transaction import commit
 from plone.uuid.interfaces import IUUID
 
-reload(sys)
-sys.setdefaultencoding('utf8')
+from plone.protect.interfaces import IDisableCSRFProtection
+from zope.interface import alsoProvides
 
 class filme(BrowserView):
 	index = ViewPageTemplateFile("../templates/templateFilme.pt")
@@ -39,6 +39,12 @@ class filme(BrowserView):
 		# cores = ["azul", "rosa", "verde", "preto", "vermelho"]
 		# self.context.setSubject(tuple(cores))
 		# self.context.reindexObject()
+
+		# desabilita a proteção
+		alsoProvides(self.request, IDisableCSRFProtection)
+		# o ultimo add não pega, VER ESSE ERRO!!!
+		self.context.atores = self.context.subject
+
 		if not self.context.sinopse:
 			return 'Não foi cadastrada sinopse para este filme'
 		return self.context.sinopse

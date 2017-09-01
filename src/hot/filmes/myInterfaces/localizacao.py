@@ -24,8 +24,8 @@ class Ilocalizacao(Schema):
     )
     # campo para pegar os subject do objeto
     tagsObj = schema.TextLine(
-        title       = _(u'Tags'),
-        required    = False
+        required    = False,
+        readonly    = True
     )
     dexteritytextindexer.searchable('cidade', 'title', 'sigla', 'tagsObj')
 

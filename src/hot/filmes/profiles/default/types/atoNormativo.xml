@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <object i18n:domain="hot.filmes" meta_type="Dexterity FTI" name="atoNormativo" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
-    <!-- Basic properties -->
     <property name="title">Ato Normativo</property>
     <property name="description">Objeto Ato Normativo</property>
-
     <property name="allow_discussion">False</property>
     <property name="factory">atoNormativo</property>
-    <property name="icon_expr">string:${portal_url}/document_icon.png</property>
+    <property name="icon_expr"></property>
     <property name="link_target"></property>
-    <!-- Hierarchy control -->
     <property name="allowed_content_types">
         <!-- <element value="" />-->
     </property>
@@ -16,20 +13,25 @@
     <property name="global_allow">True</property>
     <!-- Schema, class and security -->
     <property name="add_permission">cmf.AddPortalContent</property>
+    <!-- Estrutura da Interface -->
     <property name="schema">hot.filmes.myInterfaces.atoNormativo.IatoNormativo</property>
     <property name="klass">plone.dexterity.content.Item</property>
     <property name="model_file"></property>
     <property name="model_source"></property>
-    <!-- Enabled behaviors -->
+    <!-- Setar os checkboxes da aba Comportamentos-->
     <property name="behaviors">
-        <element value="plone.app.content.interfaces.INameFromTitle" />
+        <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
         <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer" />
+        <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable"/>
+        <element value="plone.app.relationfield.behavior.IRelatedItems"/>
     </property>
-    <!-- View information -->
+    <!-- url para adicionar o ato -->
     <property name="add_view_expr">string:${folder_url}/++add++atoNormativo</property>
     <property name="immediate_view">view</property>
+    <!-- Nome da view que será carregada por padrão -->
     <property name="default_view">view</property>
     <property name="default_view_fallback">False</property>
+    <!-- Registo das views -->
     <property name="view_methods">
         <element value="view"/>
     </property>

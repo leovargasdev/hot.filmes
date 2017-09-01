@@ -133,7 +133,7 @@
                     </div>
                     <!-- Lista Telefônica -->
                     <div class="col-xs-12 col-sm-12 col-md-12 espacamentoColuna5Footer">
-                        <a ref="https://telefones.uffs.edu.br">
+                        <a href="https://telefones.uffs.edu.br">
                             <span>Lista Telefônica da UFFS</span>
                         </a>
                     </div>

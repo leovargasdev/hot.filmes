@@ -26,8 +26,8 @@ from datetime import date
 from transaction import commit
 from plone.uuid.interfaces import IUUID
 
-reload(sys)
-sys.setdefaultencoding('utf8')
+from plone.protect.interfaces import IDisableCSRFProtection
+from zope.interface import alsoProvides
 
 class localizacao(BrowserView):
 	index = ViewPageTemplateFile("../templates/templateLocalizacao.pt")
@@ -36,6 +36,8 @@ class localizacao(BrowserView):
 		return self.index()
 
 	def getSigla(self):
+		# desabilita a proteção
+		alsoProvides(self.request, IDisableCSRFProtection)
 		self.context.tagsObj = self.context.subject
 		self.context.reindexObject()
 		if not self.context.sigla:

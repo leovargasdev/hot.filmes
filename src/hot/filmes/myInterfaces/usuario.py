@@ -1,3 +1,5 @@
+#!/opt/plone/zinstance/bin/python2.7
+# -*- coding: utf-8 -*-
 from hot.filmes import _
 from zope import schema
 from zope.interface import Interface
@@ -16,19 +18,19 @@ sexos = [["m", "Masculino"], ["f", "Feminino"]]
 opSexos = SimpleVocabulary([SimpleTerm(value=sexos[0][0], title=sexos[0][1]),
                             SimpleTerm(value=sexos[1][0], title=sexos[1][1])])
 
-def possibleOrganizers(context):
-    terms = []
-    result = []
-    res = context.portal_catalog(portal_type="localizacao")
-    for i in res:
-        pais = i.getObject().title #pega o camplo title da classe localizacao
-        if pais not in [t for t in result]:
-            result.append(pais)
-            terms.append(SimpleVocabulary.createTerm(pais))
-    return SimpleVocabulary(terms)
-directlyProvides(possibleOrganizers, IContextSourceBinder)
+# def possibleOrganizers(context):
+#     terms = []
+#     result = []
+#     res = context.portal_catalog(portal_type="localizacao")
+#     for i in res:
+#         pais = i.getObject().title #pega o camplo title da classe localizacao
+#         if pais not in [t for t in result]:
+#             result.append(pais)
+#             terms.append(SimpleVocabulary.createTerm(pais))
+#     return SimpleVocabulary(terms)
+# directlyProvides(possibleOrganizers, IContextSourceBinder)
 
-class Iusuario(Interface):
+class Iusuario(Schema):
     title = schema.TextLine(
         title       = _(u'Nome'),
         required    = True
@@ -58,7 +60,7 @@ class Iusuario(Interface):
         title       = _(u'Filmes Favoritos'),
         value_type  = RelationChoice(source = CatalogSource(portal_type = 'filme')),
         description = _(u'Dos filmes que estao no sistema, dizer quais declara favorito'),
-        required    = False,
+        required    = False
     )
     #Add um elemento
     # filmesFavoritos = RelationChoice(
@@ -66,11 +68,11 @@ class Iusuario(Interface):
     #     source      = CatalogSource(portal_type = 'filme'),
     #     required    = False,
     # )
-    endereco = schema.Choice(
-        title       = _(u"Endereco"),
-        source      = possibleOrganizers,
-        required    = False
-    )
+    # endereco = schema.Choice(
+    #     title       = _(u'Endereco'),
+    #     source      = possibleOrganizers,
+    #     required    = False
+    # )
     aniversario = schema.Date(
         title       = (u'Data de Nascimento'),
         required    = False

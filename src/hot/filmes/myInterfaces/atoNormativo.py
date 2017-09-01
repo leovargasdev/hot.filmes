@@ -16,12 +16,14 @@ from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel.model import Schema
 from zope.interface import alsoProvides
 
+from zope.schema.interfaces import IContextSourceBinder
+
 class IatoNormativo(model.Schema):
 
-    """Elementos da Aba Padrao"""
+    """Elementos da Aba Ato"""
 
-    fieldset('Ato', fields = ['description', 'numero', 'data', 'documento_historico', 'conteudo',
-    'pessoas_citadas_no_ato', 'autoridade', 'integrante_cargo', 'diario_oficial_da_uniao', 'municipio'])
+    fieldset('Ato', fields = ['numero', 'data', 'documento_historico', 'description', 'conteudo',
+    'pessoas_citadas_no_ato', 'autoridade', 'integrante_cargo', 'diario_oficial_da_uniao', 'municipio', 'atos_relacionados'])
 
     description = schema.Text(
         title       = _(u'Ementa'),
@@ -38,7 +40,7 @@ class IatoNormativo(model.Schema):
         description = _(u'Data de criação deste Ato.'),
         required    = True
     )
-    documento_historico = namedfile.NamedBlobImage(
+    documento_historico = namedfile.NamedBlobFile(
         title       = _(u'Documento'),
         description = _(u'Para quando houver um documento antigo que contém o mesmo conteúdo deste Ato. \
                         Usado para migração do site antigo para o atual.'),
@@ -55,7 +57,7 @@ class IatoNormativo(model.Schema):
                         direcionadas, onde se poderá clicar em um nome/tag e será possível visualizar todos os atos em que a \
                         pessoa esteve citada. Obs.: Este campo não lê o conteúdo, portanto, mesmo que os nomes estejam citados \
                         no corpo do ato, ainda assim será necessário informá-los neste campo.'),
-        value_type  = RelationChoice(source = CatalogSource(portal_type = 'pessoas')),
+        value_type  = RelationChoice(source = CatalogSource(portal_type = 'pessoa')),
         required    = False
     )
     autoridade = RelationList(
@@ -64,7 +66,7 @@ class IatoNormativo(model.Schema):
                         titular. Exemplo: Ato emitido pela "Câmara de Graduação" é assinado pelo  "Presidente da Câmara de Graduação" \
                         e pelo "Presidente do CONSUNI", neste caso, se não informar ambos os cargos neste campo, aparecerá apenas o \
                         "Presidente da Câmara de Graduação". Após salvar é possível corrigir possíveis erros editando o Ato, informando as autoridades corretas salvando.'),
-        value_type  = RelationChoice(source = CatalogSource(portal_type = 'cargos-de-gestão')),
+        value_type  = RelationChoice(source = CatalogSource(portal_type = 'cargo')),
         required    = False
     )
     integrante_cargo = RelationList(
@@ -72,7 +74,7 @@ class IatoNormativo(model.Schema):
         description = _(u'[OPCIONAL] Preencher apenas se a pessoa que estiver como Titular do Cargo não for a atual e não for possível \
                         ou necessário atualizar a informação do cargo no momento da criação do Ato. Ex.: Criar uma Portaria de 2009 \
                         onde o Titular do Cargo de "Reitor" era outra Pessoa.'),
-        value_type  = RelationChoice(source = CatalogSource(portal_type = 'pessoas')),
+        value_type  = RelationChoice(source = CatalogSource(portal_type = 'pessoa')),
         required    = False
     )
     diario_oficial_da_uniao = schema.URI(
@@ -80,11 +82,17 @@ class IatoNormativo(model.Schema):
         description = _(u'[OPCIONAL] Informar o Link nos casos em que o Ato foi enviado para o D.O.U. Diário Oficial da União.'),
         required    = False
     )
-
     municipio = schema.Choice(
         title       = _(u"Município"),
         description = _(u'[OPCIONAL] Preencha apenas se o Ato possuir local diferente do cadastro do órgão que o emitiu.'),
-        source      = CatalogSource(portal_type = 'municipios'),
+        source      = CatalogSource(portal_type = 'municipio'),
+        required    = False
+    )
+    atos_relacionados = RelationList(
+        title       = _(u'Atos Relacionados'),
+        description = _(u'Selecionar atos que podem estar relacionados de alguma forma com esse ato. Obs: atos alterados \
+                        , anulados... por este ato já são automaticamente adicionados.'),
+        value_type  = RelationChoice(source = CatalogSource(portal_type = 'ato_normativo')),
         required    = False
     )
 
@@ -137,7 +145,7 @@ class IatoNormativo(model.Schema):
     """Elementos da Aba Anexos"""
 
     fieldset('Anexos', fields = ['anexo1', 'anexo2', 'anexo3', 'anexo4', 'anexo5', 'anexo6', 'anexo7', 'anexo8', 'anexo9',
-    'anexo10', 'anexo11', 'anexo12', 'anexo13', 'anexo14', 'anexo15'])
+    'anexo10', 'anexo11', 'anexo12', 'anexo13', 'anexo14', 'anexo15', 'anexo16', 'anexo17', 'anexo18', 'anexo19', 'anexo20'])
 
     anexo1 = namedfile.NamedBlobFile(title=_(u'Anexo 1'),   required=False)
     anexo2 = namedfile.NamedBlobFile(title=_(u'Anexo 2'),   required=False)
@@ -154,13 +162,13 @@ class IatoNormativo(model.Schema):
     anexo13 = namedfile.NamedBlobFile(title=_(u'Anexo 13'), required=False)
     anexo14 = namedfile.NamedBlobFile(title=_(u'Anexo 14'), required=False)
     anexo15 = namedfile.NamedBlobFile(title=_(u'Anexo 15'), required=False)
+    anexo16 = namedfile.NamedBlobFile(title=_(u'Anexo 16'), required=False)
+    anexo17 = namedfile.NamedBlobFile(title=_(u'Anexo 17'), required=False)
+    anexo18 = namedfile.NamedBlobFile(title=_(u'Anexo 18'), required=False)
+    anexo19 = namedfile.NamedBlobFile(title=_(u'Anexo 19'), required=False)
+    anexo20 = namedfile.NamedBlobFile(title=_(u'Anexo 20'), required=False)
 
-    """Elementos da Aba Oculta"""
-
-    fieldset('[Oculta]', fields = ['title', 'oculto_tagsSubject', 'oculto_autoridade', 'oculto_municipio', 'oculto_sigla', 'oculto_tag',
-    'oculto_redirect', 'oculto_altera', 'oculto_anula', 'oculto_retifica', 'oculto_revoga', 'oculto_torna_sem_efeito', 'oculto_estados',
-    'atos_que_este_ato_altera_copia', 'atos_que_este_ato_anula_copia', 'atos_que_este_ato_retifica_copia', 'atos_que_este_ato_revoga_copia',
-    'atos_que_este_ato_torna_sem_efeito_copia'])
+    """Elementos da Aba Padrão (obs: Todos esses campos estão ocultos para o Usuário)"""
 
     title = schema.TextLine(
         title       = _(u'Título'),
@@ -278,7 +286,8 @@ class IatoNormativo(model.Schema):
         required    = False,
         readonly    = True
     )
+
     #campos que são buscados no SearchableText
-    dexteritytextindexer.searchable('title', 'description', 'tagsObj')
+    dexteritytextindexer.searchable('title', 'description', 'oculto_tagsSubject')
 
 alsoProvides(IatoNormativo, IFormFieldProvider)

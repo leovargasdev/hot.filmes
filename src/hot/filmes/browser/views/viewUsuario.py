@@ -9,9 +9,6 @@ from Products.Five.browser import BrowserView
 from plone.dexterity.browser.view import DefaultView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
-reload(sys)
-sys.setdefaultencoding('utf8')
-
 class usuario(BrowserView):
 	index = ViewPageTemplateFile("../templates/templateUsuario.pt")
 
