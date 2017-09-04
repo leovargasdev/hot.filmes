@@ -33,7 +33,7 @@
                     <h1>Informações <span tal:content="pais"></span></h1>
                 </div>
             </div>
-            <div class="row"><div class="col-md-8 col-md-offset-2 linha"></div></div>
+            <div class="row"><div class="col-md-8 col-md-offset-2 linhaTituloLocalizacao"></div></div>
             <br />
             <br />
             <div class="row">

@@ -36,10 +36,6 @@ class localizacao(BrowserView):
 		return self.index()
 
 	def getSigla(self):
-		# desabilita a proteção
-		alsoProvides(self.request, IDisableCSRFProtection)
-		self.context.tagsObj = self.context.subject
-		self.context.reindexObject()
 		if not self.context.sigla:
 			return 'Não tem nenhuma sigla'
 		return self.context.sigla

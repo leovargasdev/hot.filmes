@@ -1,3 +1,4 @@
+# encoding: utf-8
 from hot.filmes import _
 from zope import schema
 from zope.interface import Interface
@@ -10,7 +11,7 @@ from zope.interface import alsoProvides
 
 class Ilocalizacao(Schema):
     title = schema.TextLine(
-        title       = _(u'Pais'),
+        title       = _(u'País'),
         required    = True
     )
     cidade = schema.TextLine(
@@ -18,16 +19,11 @@ class Ilocalizacao(Schema):
         required    = True
     )
     sigla = schema.TextLine(
-        title       = _(u'Sigla(estado/pais)'),
+        title       = _(u'Sigla(estado/paíss)'),
         description = _(u'abreviatura'),
         required    = False
     )
-    # campo para pegar os subject do objeto
-    tagsObj = schema.TextLine(
-        required    = False,
-        readonly    = True
-    )
-    dexteritytextindexer.searchable('cidade', 'title', 'sigla', 'tagsObj')
+    dexteritytextindexer.searchable('title', 'cidade', 'sigla')
 
 alsoProvides(Ilocalizacao, IFormFieldProvider)
 

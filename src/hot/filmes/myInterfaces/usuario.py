@@ -15,22 +15,21 @@ from plone.supermodel.model import Schema
 from zope.interface import alsoProvides
 
 sexos = [["m", "Masculino"], ["f", "Feminino"]]
-opSexos = SimpleVocabulary([SimpleTerm(value=sexos[0][0], title=sexos[0][1]),
-                            SimpleTerm(value=sexos[1][0], title=sexos[1][1])])
+opSexos = SimpleVocabulary([SimpleTerm(value=sexos[0][0], title=sexos[0][1]), SimpleTerm(value=sexos[1][0], title=sexos[1][1])])
 
-# def possibleOrganizers(context):
-#     terms = []
-#     result = []
-#     res = context.portal_catalog(portal_type="localizacao")
-#     for i in res:
-#         pais = i.getObject().title #pega o camplo title da classe localizacao
-#         if pais not in [t for t in result]:
-#             result.append(pais)
-#             terms.append(SimpleVocabulary.createTerm(pais))
-#     return SimpleVocabulary(terms)
-# directlyProvides(possibleOrganizers, IContextSourceBinder)
+def getPaises(context):
+    terms = []
+    result = []
+    res = context.portal_catalog(portal_type="localizacao")
+    for i in res:
+        pais = i.getObject().title #pega o camplo title da classe localizacao
+        if pais not in [t for t in result]:
+            result.append(pais)
+            terms.append(SimpleVocabulary.createTerm(pais))
+    return SimpleVocabulary(terms)
+directlyProvides(getPaises, IContextSourceBinder)
 
-class Iusuario(Schema):
+class Iusuario(Interface):
     title = schema.TextLine(
         title       = _(u'Nome'),
         required    = True
@@ -41,7 +40,7 @@ class Iusuario(Schema):
     )
     apelido = schema.TextLine(
         title       = _(u'Apelido'),
-        required    = False
+        required    = True
     )
     cpf = schema.TextLine(
         title       = _(u'CPF'),
@@ -60,7 +59,7 @@ class Iusuario(Schema):
         title       = _(u'Filmes Favoritos'),
         value_type  = RelationChoice(source = CatalogSource(portal_type = 'filme')),
         description = _(u'Dos filmes que estao no sistema, dizer quais declara favorito'),
-        required    = False
+        required    = False,
     )
     #Add um elemento
     # filmesFavoritos = RelationChoice(
@@ -68,11 +67,11 @@ class Iusuario(Schema):
     #     source      = CatalogSource(portal_type = 'filme'),
     #     required    = False,
     # )
-    # endereco = schema.Choice(
-    #     title       = _(u'Endereco'),
-    #     source      = possibleOrganizers,
-    #     required    = False
-    # )
+    endereco = schema.Choice(
+        title       = _(u"Endereco"),
+        source      = getPaises,
+        required    = False
+    )
     aniversario = schema.Date(
         title       = (u'Data de Nascimento'),
         required    = False

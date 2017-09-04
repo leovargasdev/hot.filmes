@@ -19,24 +19,72 @@
 </metal:content-description>
 
 <metal:content-core fill-slot="content-core">
+    <style type="text/css">
+        @import url("${context/portal_url}/++resource++importCSS/filme.css");
+    </style>
     <div tal:define="
-                     titulo     context/title;
                      sinopse    python: view.getSinopse();
                      dataL      python: view.getData();
                      horarioL   python: view.getHorario();">
-        <!-- Campo Titulo -->
-        <div tal:condition="python: titulo is not None">
-            <b><span class="">Titulo:<span></b>
-            <span tal:content="titulo"> titulo </span>
+        <div class="container">
+            <div class="row">
+                <!-- Nome do Filme -->
+                <div class="col-md-12">
+                    <h1><span tal:content="context/title"></span></h1>
+                </div>
+            </div>
+            <br />
+            <div class="row"><div class="col-md-8 col-md-offset-2 linhaTituloFilme"></div></div>
+            <br />
+            <br />
+            <!-- Campo sinopse -->
+            <div class="row">
+                <div class="col-md-1 col-md-offset-3">
+                    <strong>Sinopse:<strong>
+                </div>
+                <div class="col-md-5">
+                    <pre tal:content="string:${sinopse}"></pre>
+                </div>
+            </div>
+            <br />
+            <!-- Atores (COM PROBLEMAS)-->
+            <!-- <div class="row">
+                <div class="col-md-2 col-md-offset-3">
+                    <strong>Atores:<strong>
+                </div>
+                <div class="col-md-4 bordaLinha">
+                    <table class="tabelaFilmes">
+                        <tr>
+                            <th>Atores</th>
+                        </tr>
+                        <tr tal:repeat="ator atores">
+                            <td class="tabelaLinha" tal:content="ator"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div> -->
+            <br />
+            <!-- Campo Data de Lançamento -->
+            <div class="row">
+                <div class="col-md-2 col-md-offset-3">
+                    <strong>Data de lançamento:<strong>
+                </div>
+                <div class="col-md-4">
+                    <pre tal:content="string:${dataL}"></pre>
+                </div>
+            </div>
+            <br />
+            <!-- Campo Horário de Lançamento -->
+            <div class="row">
+                <div class="col-md-2 col-md-offset-3">
+                    <strong>Horário de Lançamento:<strong>
+                </div>
+                <div class="col-md-4">
+                    <pre tal:content="string:${horarioL}"></pre>
+                </div>
+            </div>
+            <br />
         </div>
-        <br>
-        <!-- Campo Sinopse -->
-        <div>
-            <b><span class="">Sinopse:<span></b>
-            <span tal:content="string:${sinopse}"> sinopse </span>
-        </div>
-        <br>
-
 <!-- choice -->
         <!-- <tal:paissesX condition="context/pais" define="pais context/pais/getObject">
             <span tal:content="pais/title"/>
@@ -47,13 +95,6 @@
         </tal:paissesL> -->
 
         <!-- Campo Data Lançamento -->
-        <div>
-            <b><span>Data:</span></b>
-            <span tal:content="string:${dataL}"> Data Lancamento </span>
-
-            <b><span>Horario:</span></b>
-            <span tal:content="string:${horarioL}"> Horario Lancamento </span>
-        </div>
     </div>
 </metal:content-core>
 </body>

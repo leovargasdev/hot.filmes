@@ -54,3 +54,6 @@ class filme(BrowserView):
 
 	def getHorario(self):
 		return self.context.dataLancamento.time()
+
+	def getAtores(self):
+		return self.context.dataLancamento.atores

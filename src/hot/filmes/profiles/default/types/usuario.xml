@@ -21,7 +21,6 @@
     <property name="model_source"></property>
     <!-- Setar os checkboxes da aba Comportamentos-->
     <property name="behaviors">
-        <element value="plone.app.content.interfaces.INameFromTitle" />
         <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer" />
     </property>
     <!-- Url para adiconar o dexterity -->

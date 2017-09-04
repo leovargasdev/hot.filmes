@@ -50,6 +50,7 @@ Description: .. This README is meant for consumption by humans and pypi. Pypi ca
             ...
         
             eggs =
+        	collective.dexteritytextindexer
                 hot.filmes
         
             develop =

@@ -22,7 +22,8 @@
     <!-- Enabled behaviors -->
     <property name="behaviors">
         <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
-        <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer"/>
+        <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer" />
+        <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable"/>
     </property>
     <!-- View information -->
     <property name="add_view_expr">string:${folder_url}/++add++filme</property>

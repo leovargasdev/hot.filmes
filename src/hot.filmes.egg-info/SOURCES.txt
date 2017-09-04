@@ -27,6 +27,7 @@ src/hot/filmes/browser/configure.zcml
 src/hot/filmes/browser/control.py
 src/hot/filmes/browser/overrides/.gitkeep
 src/hot/filmes/browser/resources/css/barraBusca.css
+src/hot/filmes/browser/resources/css/filme.css
 src/hot/filmes/browser/resources/css/footer.css
 src/hot/filmes/browser/resources/css/localizacao.css
 src/hot/filmes/browser/resources/css/logo.css

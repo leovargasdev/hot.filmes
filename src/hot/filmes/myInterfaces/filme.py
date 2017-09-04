@@ -1,3 +1,4 @@
+# encoding: utf-8
 from hot.filmes import _
 from zope import schema
 from zope.interface import Interface
@@ -10,7 +11,7 @@ from zope.interface import alsoProvides
 class Ifilme(Schema):
     title = schema.TextLine(
         title       = _(u'Filme'),
-        description = _(u'Titulo do filme'),
+        description = _(u'Título do filme'),
         required    = True
     )
     sinopse = schema.Text(
@@ -19,11 +20,11 @@ class Ifilme(Schema):
         required    = False
     )
     dataLancamento = schema.Datetime(
-        title       = _(u'Dia de Lancamento e Horario'),
+        title       = _(u'Dia de Lançamento e Horário'),
         required    = True
     )
     atores = schema.TextLine(
-        title       = _(u'Autores'),
+        title       = _(u'Atores'),
         required    = True,
         readonly    = True
     )
