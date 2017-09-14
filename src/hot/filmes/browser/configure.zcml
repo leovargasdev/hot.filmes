@@ -9,6 +9,10 @@
         directory="overrides"
         layer="hot.filmes.interfaces.IHotFilmesLayer"
     />
+    <!-- <include package="five.grok" file="meta.zcml" /> -->
+
+    <!-- <grok:grok package=".control.write_on_changes" /> -->
+
     <browser:resourceDirectory
         name="importCSS"
         directory="resources/css"

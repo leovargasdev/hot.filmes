@@ -24,7 +24,9 @@ src/hot/filmes/setuphandlers.py
 src/hot/filmes/testing.py
 src/hot/filmes/browser/__init__.py
 src/hot/filmes/browser/configure.zcml
-src/hot/filmes/browser/control.py
+src/hot/filmes/browser/control/__init__.py
+src/hot/filmes/browser/control/write_on_changes.py
+src/hot/filmes/browser/control/xml_elements.py
 src/hot/filmes/browser/overrides/.gitkeep
 src/hot/filmes/browser/resources/css/barraBusca.css
 src/hot/filmes/browser/resources/css/filme.css

@@ -13,7 +13,6 @@ from z3c.relationfield.schema import RelationChoice, RelationList
 # bibliotecas para otimizar busca
 from collective import dexteritytextindexer
 from plone.autoform.interfaces import IFormFieldProvider
-from plone.supermodel.model import Schema
 from zope.interface import alsoProvides
 
 from zope.schema.interfaces import IContextSourceBinder
